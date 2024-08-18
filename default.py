@@ -1,25 +1,42 @@
-import xbmc
-import urllib.parse
+'''
+script.json-rpc
+Control CEC devices through Kodi's JSON-RPC API
+'''
+
 import sys
-import time
+import xbmc
+import xbmcaddon
+import urllib.parse
 
-try:
+ADDON = xbmcaddon.Addon('script.json-cec')
+ADDON_NAME = ADDON.getAddonInfo('name')
+
+actions = {
+    'activate': 'CECActivateSource',
+    'toggle': 'CECToggleState',
+    'standby': 'CECStandby',
+}
+
+def log(text):
+    message = f'{ADDON_NAME}: {text}'
+    xbmc.log(msg=message, level=xbmc.LOGDEBUG)
+    return
+
+def run():
+    try:
         params = urllib.parse.parse_qs('&'.join(sys.argv[1:]))
-        command = params.get('command',None)
-except:
-        command = None
+        command = params['command'][0]
+    except (IndexError, KeyError) as error:
+        log('Missing "command" parameter, exiting')
+        return
 
-if command and command[0] == 'activate':
-        xbmc.executebuiltin('CECActivateSource')
+    try:
+        action = actions[command]
+    except KeyError as error:
+        log(f'Invalid "command" value: {command}, exiting')
+        return
 
-elif command and command[0] == 'toggle':
-        xbmc.executebuiltin('CECToggleState')
+    xbmc.executebuiltin(action)
+    return
 
-elif command and command[0] == 'standby':
-        xbmc.executebuiltin('CECStandby')
-
-elif command and command[0] == 'stop_and_standby':
-        if xbmc.Player().isPlaying():
-                xbmc.executebuiltin("PlayerControl(Stop)")
-                time.sleep(3)
-        xbmc.executebuiltin('CECStandby')
+run()
