@@ -1,0 +1,25 @@
+# https://github.com/xbmc/action-kodi-addon-checker?tab=readme-ov-file#example-usage
+name: Addon Validation
+
+on: [push, pull_request]
+
+jobs:
+  kodi-addon-checker:
+    name: Kodi Addon checker
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Validate Addon
+        uses: xbmc/action-kodi-addon-checker@v1.2
+        with:
+          kodi-version: nexus
+          addon-id: ${{ github.event.repository.name }}
+          is-pr: false
