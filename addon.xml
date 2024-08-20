@@ -3,7 +3,7 @@
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
-	<extension point="xbmc.python.script" library="default.py">
+	<extension point="xbmc.python.script" library="resources/lib/runner.py">
 		<provides>executable</provides>
 	</extension>
 	<extension point="xbmc.addon.metadata">

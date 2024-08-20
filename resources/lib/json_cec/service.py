@@ -1,8 +1,3 @@
-'''
-script.json-rpc
-Control CEC devices through Kodi's JSON-RPC API
-'''
-
 import sys
 import xbmc
 import xbmcaddon
@@ -38,5 +33,3 @@ def run():
 
     xbmc.executebuiltin(action)
     return
-
-run()
