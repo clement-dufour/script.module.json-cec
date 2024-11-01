@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.json-cec" name="JSON-CEC" version="1.0.0" provider-name="clement-dufour">
+<addon id="script.module.json-cec" name="JSON-CEC" version="1.0.0" provider-name="clement-dufour">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
 	</requires>
@@ -11,6 +11,6 @@
 		<summary lang="en">Control CEC devices through Kodi's JSON-RPC API</summary>
 		<description lang="en">Call commands of this addon with Kodi's JSON-RPC API to run CEC commands. Accepted commands are 'activate', 'toggle' and 'standby'. Fork of joshjowen's work.</description>
 		<platform>all</platform>
-		<source>https://github.com/clement-dufour/script.json-cec</source>
+		<source>https://github.com/clement-dufour/script.module.json-cec</source>
 	</extension>
 </addon>

@@ -3,7 +3,7 @@ import xbmc
 import xbmcaddon
 import urllib.parse
 
-ADDON = xbmcaddon.Addon('script.json-cec')
+ADDON = xbmcaddon.Addon('script.module.json-cec')
 ADDON_NAME = ADDON.getAddonInfo('name')
 
 actions = {

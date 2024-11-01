@@ -11,7 +11,7 @@ Forked from https://github.com/joshjowen/script.json-cec
 ## Request example
 
 ```shell
-curl -X POST -H 'content-type:application/json' http://kodi:8080/jsonrpc -d '{"jsonrpc":"2.0","method":"Addons.ExecuteAddon","params":{"addonid":"script.json-cec","params":{"command":"activate"}},"id":1}' 
+curl -X POST -H 'content-type:application/json' http://kodi:8080/jsonrpc -d '{"jsonrpc":"2.0","method":"Addons.ExecuteAddon","params":{"addonid":"script.module.json-cec","params":{"command":"activate"}},"id":1}' 
 ```
 
 # Installation

@@ -1,5 +1,5 @@
 '''
-script.json-rpc
+script.module.json-cec
 Control CEC devices through Kodi's JSON-RPC API
 '''
 
